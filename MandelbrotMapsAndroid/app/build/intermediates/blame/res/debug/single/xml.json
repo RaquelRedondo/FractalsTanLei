@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/raquel/Desktop/Exercises/FractalsTanLei/MandelbrotMapsAndroid/app/build/intermediates/res/merged/debug/xml/settings.xml",
+        "source": "/home/raquel/Desktop/Exercises/FractalsTanLei/MandelbrotMapsAndroid/app/src/main/res/xml/settings.xml"
+    },
+    {
+        "merged": "/home/raquel/Desktop/FractalMaps/MandelbrotMapsAndroid/app/build/intermediates/res/merged/debug/xml/settings.xml",
+        "source": "/home/raquel/Desktop/FractalMaps/MandelbrotMapsAndroid/app/src/main/res/xml/settings.xml"
+    }
+]

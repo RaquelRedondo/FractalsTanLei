@@ -334,7 +334,7 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
         int borderwidth = Math.max(1, (int) (width / 300.0));
 
         double ratio = (double) width / (double) height;
-        width /= 7;
+        width /= 3; //Originally 7
         height = (int) (width / ratio);
 
         //Add border view (behind little view, slightly larger)

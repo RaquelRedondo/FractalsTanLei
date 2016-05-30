@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/raquel/Desktop/Exercises/FractalsTanLei/MandelbrotMapsAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="21.1.1"
+        sha1="686344a780033e4ba22b926cd225f8d4941247e6">
+        <dex dex="/home/raquel/Desktop/Exercises/FractalsTanLei/MandelbrotMapsAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-21.0.0_7c0c184b2fbade5d23e65d5f5c0d630745aa857d/classes.dex" />
+    </item>
+    <item
+        jar="/home/raquel/Desktop/Exercises/FractalsTanLei/MandelbrotMapsAndroid/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="21.1.1"
+        sha1="3129c1875ffa091598536bdfca4dfa534005c1df">
+        <dex dex="/home/raquel/Desktop/Exercises/FractalsTanLei/MandelbrotMapsAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_01f740e79922021829ce42d99a5555f0f24d711c/classes.dex" />
+    </item>
+    <item
+        jar="/home/raquel/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/5.1.2/daf5472b0df6dabaceb6ad755b3812535863965a/butterknife-5.1.2.jar"
+        jumboMode="true"
+        revision="21.1.1"
+        sha1="daf5472b0df6dabaceb6ad755b3812535863965a">
+        <dex dex="/home/raquel/Desktop/Exercises/FractalsTanLei/MandelbrotMapsAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/butterknife-5.1.2_8fa724611f1c8525535ed3ea8c771a007cee90ab/classes.dex" />
+    </item>
+    <item
+        jar="/home/raquel/Desktop/Exercises/FractalsTanLei/MandelbrotMapsAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="21.1.1"
+        sha1="95fd37732ec852e99f07eeb516a3650172f1d136">
+        <dex dex="/home/raquel/Desktop/Exercises/FractalsTanLei/MandelbrotMapsAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-21.0.0_44a49a70f64368f2ffa68eb6b9e20ac013a5cba6/classes.dex" />
+    </item>
+    <item
+        jar="/home/raquel/Desktop/Exercises/FractalsTanLei/MandelbrotMapsAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/jars/libs/internal_impl-21.0.0.jar"
+        jumboMode="true"
+        revision="21.1.1"
+        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
+        <dex dex="/home/raquel/Desktop/Exercises/FractalsTanLei/MandelbrotMapsAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-21.0.0_b9f1bb128d52f3723c79c58de8f3460c736db05f/classes.dex" />
+    </item>
+    <item
+        jar="/home/raquel/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"
+        jumboMode="true"
+        revision="21.1.1"
+        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e">
+        <dex dex="/home/raquel/Desktop/Exercises/FractalsTanLei/MandelbrotMapsAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-21.0.0_30600343f22a3c424826d4a2b576156945cd976b/classes.dex" />
+    </item>
+    <item
+        jar="/home/raquel/Desktop/Exercises/FractalsTanLei/MandelbrotMapsAndroid/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="21.1.1"
+        sha1="67f3df890c2e3bc49c7ae2c6809495462c0fd38d">
+        <dex dex="/home/raquel/Desktop/Exercises/FractalsTanLei/MandelbrotMapsAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_954af212f95253602405c5cb2c9d1e6a2b617d1d/classes.dex" />
+    </item>
+
+</items>
