@@ -106,6 +106,7 @@ public abstract class AbstractFractalView extends View {
 
     // Tracks scaling/ dragging position
     public Matrix matrix;
+    private Matrix rotationMatrix;
 
     // Handle to activity holding the view
     public FractalActivity parentActivity;
@@ -162,6 +163,9 @@ public abstract class AbstractFractalView extends View {
         matrix = new Matrix();
         matrix.reset();
 
+        rotationMatrix = new Matrix();
+        rotationMatrix.reset();
+
         // Create the render threads
         noOfThreads = Runtime.getRuntime().availableProcessors();
         //Log.d(TAG, "Using " + noOfThreads + " cores");
@@ -186,7 +190,7 @@ public abstract class AbstractFractalView extends View {
         super.onSizeChanged(w, h, oldw, oldh);
 
         // Show the little view at the start, if allowed.
-        if (fractalViewSize == FractalViewSize.LARGE && parentActivity.showLittleAtStart) {
+        if (fractalViewSize == FractalViewSize.LARGE) {
             parentActivity.addLittleView(true);
         }
 
@@ -223,6 +227,9 @@ public abstract class AbstractFractalView extends View {
         midX = 0.0f;
         midY = 0.0f;
 
+        //Rotation
+        rotationMatrix.postRotate(45, getWidth()/2, getHeight()/2);
+
         //Create new image only if not dragging, zooming, or moving the Julia pin
         if (controlmode == ControlMode.STATIC && !holdingPin && getWidth() > 0) {
             bitmapCreations++;
@@ -232,6 +239,10 @@ public abstract class AbstractFractalView extends View {
         //Draw fractal image on screen
         if (getWidth() > 0)
             canvas.drawBitmap(fractalBitmap, matrix, new Paint());
+
+        if (fractalViewSize == FractalViewSize.LITTLE &&  controlmode == ControlMode.ZOOMING && !holdingPin){
+            canvas.drawBitmap(fractalBitmap,rotationMatrix, new Paint());
+        }
 
         // Brings little view to front if it's hidden but shouldn't be, as can happen.
         if (parentActivity.showingLittle) parentActivity.addLittleView(false);
@@ -530,8 +541,6 @@ public abstract class AbstractFractalView extends View {
 
         // Change zoom, but don't re-render
         zoomChange((int) focusX, (int) focusY, 1 / newScaleFactor);
-
-        rotateLittleView();
 
         invalidate();
     }
@@ -963,8 +972,8 @@ public abstract class AbstractFractalView extends View {
     abstract int pixelInSet(int xPixel, int yPixel, int maxIterations);
 
     public void rotateLittleView(){
-        if (fractalViewSize == FractalViewSize.LITTLE){
-
+        if (fractalViewSize == FractalViewSize.LARGE){
+            //computePixels();
         }
     }
 }
