@@ -54,7 +54,8 @@ public abstract class AbstractFractalView extends View {
     public static enum ControlMode {
         ZOOMING,
         DRAGGING,
-        STATIC
+        STATIC,
+        ROTATING
     }
 
     public ControlMode controlmode = ControlMode.STATIC;
@@ -240,8 +241,9 @@ public abstract class AbstractFractalView extends View {
         if (getWidth() > 0)
             canvas.drawBitmap(fractalBitmap, matrix, new Paint());
 
-        if (fractalViewSize == FractalViewSize.LITTLE &&  controlmode == ControlMode.ZOOMING && !holdingPin){
+        if (fractalViewSize == FractalViewSize.LITTLE &&  controlmode == ControlMode.ROTATING && !holdingPin){
             canvas.drawBitmap(fractalBitmap,rotationMatrix, new Paint());
+            controlmode = ControlMode.STATIC;
         }
 
         // Brings little view to front if it's hidden but shouldn't be, as can happen.

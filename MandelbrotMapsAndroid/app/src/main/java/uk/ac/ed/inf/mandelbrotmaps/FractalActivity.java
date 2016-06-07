@@ -606,6 +606,7 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
                         fractalView.stopDragging(true);
                         fractalView.startZooming(evt.getX(), evt.getY());
                         fractalView.zoomImage(evt.getX(), evt.getY(), calculateTLZoom(evt.getX(),evt.getY()));
+                        littleFractalView.controlmode = AbstractFractalView.ControlMode.ROTATING;
                         updateLittleJulia(dragLastX,dragLastY);
                         //fractalView.zoomImage(0.0f,1.0f,calculateTLZoom(0.0f,1.0f));
                     } else {
