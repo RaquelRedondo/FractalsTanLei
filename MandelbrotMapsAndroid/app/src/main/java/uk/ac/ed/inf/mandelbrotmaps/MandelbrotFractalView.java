@@ -34,8 +34,8 @@ public class MandelbrotFractalView extends AbstractFractalView {
     int pointTwoAlpha = 150;
     int pointThreeAlpha = 150;
 
-    public float smallPinRadius = 5.0f;
-    public float largePinRadius = 20.0f;
+    public float smallPinRadius = 2.5f; //Originally 5.0f
+    public float largePinRadius = 10.0f; //Originally 20.0f
 
     public MandelbrotFractalView(Context context, FractalViewSize size) {
         super(context, size);

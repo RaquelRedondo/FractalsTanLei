@@ -241,6 +241,7 @@ public abstract class AbstractFractalView extends View {
         if (getWidth() > 0)
             canvas.drawBitmap(fractalBitmap, matrix, new Paint());
 
+        //Do the rotation
         if (fractalViewSize == FractalViewSize.LITTLE &&  controlmode == ControlMode.ROTATING && !holdingPin){
             canvas.drawBitmap(fractalBitmap,rotationMatrix, new Paint());
             controlmode = ControlMode.STATIC;
@@ -972,12 +973,6 @@ public abstract class AbstractFractalView extends View {
     }
 
     abstract int pixelInSet(int xPixel, int yPixel, int maxIterations);
-
-    public void rotateLittleView(){
-        if (fractalViewSize == FractalViewSize.LARGE){
-            //computePixels();
-        }
-    }
 }
 
 

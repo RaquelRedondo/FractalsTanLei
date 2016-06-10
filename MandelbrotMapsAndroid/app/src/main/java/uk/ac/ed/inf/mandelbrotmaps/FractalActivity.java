@@ -574,28 +574,8 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
                     fractalView.holdingPin = true;
                     updateLittleJulia(evt.getX(), evt.getY());
                 } else if (tanLeiEnabled && fractalType == FractalTypeEnum.MANDELBROT) {
-                    // user taps "switch" part of box
-                    if (touchingInSwitchBox(evt.getX(), evt.getY(), fractalView.getPointOneCoords(),
-                            fractalView.switchBoxHeight,fractalView.switchBoxWidth))
-                    {
-                        // Go to first sample Tan Lei point in Julia set.
-                        ((JuliaFractalView) littleFractalView).setJuliaParameter( misPoints[0][0],
-                                misPoints[0][1]);
-                        littleFractalSelected = true;
-                    } else if (touchingInSwitchBox(evt.getX(), evt.getY(), fractalView.getPointTwoCoords(),
-                            fractalView.switchBoxHeight,fractalView.switchBoxWidth)) {
-                        // Go to second sample Tan Lei point in Julia set.
-                        ((JuliaFractalView) littleFractalView).setJuliaParameter( misPoints[1][0],
-                             misPoints[1][1]);
-                        littleFractalSelected = true;
-                    } else if (touchingInSwitchBox(evt.getX(), evt.getY(), fractalView.getPointThreeCoords(),
-                            fractalView.switchBoxHeight,fractalView.switchBoxWidth)) {
-                        // Go to third sample Tan Lei point in Julia set.
-                        ((JuliaFractalView) littleFractalView).setJuliaParameter((double) misPoints[2][0],
-                                (double) misPoints[2][1]);
-                        littleFractalSelected = true;
                     // user taps "zoom" part of box
-                    } else if (touchingInPointBox(evt.getX(), evt.getY(), fractalView.getPointOneCoords(),
+                    if (touchingInPointBox(evt.getX(), evt.getY(), fractalView.getPointOneCoords(),
                             fractalView.pointBoxHeight,fractalView.pointBoxWidth)
                             || touchingInPointBox(evt.getX(), evt.getY(), fractalView.getPointTwoCoords(),
                             fractalView.pointBoxHeight,fractalView.pointBoxWidth)
@@ -607,7 +587,8 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
                         fractalView.startZooming(evt.getX(), evt.getY());
                         fractalView.zoomImage(evt.getX(), evt.getY(), calculateTLZoom(evt.getX(),evt.getY()));
                         littleFractalView.controlmode = AbstractFractalView.ControlMode.ROTATING;
-                        updateLittleJulia(dragLastX,dragLastY);
+                        //updateLittleJulia(dragLastX,dragLastY);
+                        rotateLittleJulia();
                         //fractalView.zoomImage(0.0f,1.0f,calculateTLZoom(0.0f,1.0f));
                     } else {
                         startDragging(evt);
@@ -686,7 +667,8 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
                 } else if (fractalView.holdingPin) {
                     // If holding the pin, drop it, update screen (render won't display while dragging, might've finished in background)
                     fractalView.holdingPin = false;
-                    updateLittleJulia(evt.getX(), evt.getY());
+                    //updateLittleJulia(evt.getX(), evt.getY());
+                    littleFractalView.invalidate();
                 }
 
                 fractalView.holdingPin = false;
@@ -936,6 +918,13 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
         }
     }
 
+    private void rotateLittleJulia(){
+        if (fractalType == FractalTypeEnum.MANDELBROT){
+            littleFractalView.controlmode = AbstractFractalView.ControlMode.ROTATING;
+            littleFractalView.invalidate();
+        }
+    }
+
     public void onSharedPreferenceChanged(SharedPreferences prefs, String changedPref) {
         if (changedPref.equals("MANDELBROT_COLOURS")) {
             String mandelbrotScheme = prefs.getString(changedPref, "MandelbrotDefault");
@@ -1103,6 +1092,7 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
     @Override
     public void onResetClicked() {
         this.fractalView.reset();
+        this.littleFractalView.reset();
         this.dismissMenuDialog();
     }
 
