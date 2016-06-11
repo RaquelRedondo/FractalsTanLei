@@ -1,0 +1,47 @@
+[33mcommit e380cfde710448efce0c545650db42a52c398556[m
+Author: RaquelRedondo <raquelro22@gmail.com>
+Date:   Sat Jun 11 02:44:01 2016 +0100
+
+    Restar pin in center as well
+
+[33mcommit 2e316ad505730613c805264df13cc4eac170eeed[m
+Author: RaquelRedondo <raquelro22@gmail.com>
+Date:   Fri Jun 10 21:55:08 2016 +0100
+
+    Restart for little view as well
+
+[33mcommit fba227ee9bf8e251391efe2195849a7b0cbe97b4[m
+Author: RaquelRedondo <raquelro22@gmail.com>
+Date:   Tue Jun 7 20:15:12 2016 +0100
+
+    littleView now rotates
+
+[33mcommit 6fa53dd55b8ac2531546e7317cc2a8e7c8756c94[m
+Author: RaquelRedondo <raquelro22@gmail.com>
+Date:   Tue Jun 7 19:46:12 2016 +0100
+
+    adding rotation to littleview. It does not rotate because of static control mode
+
+[33mcommit b9d703af84287de8192c80da33932362b8c8f1f9[m
+Author: RaquelRedondo <raquelro22@gmail.com>
+Date:   Tue Jun 7 19:07:21 2016 +0100
+
+    erased switch boxes
+
+[33mcommit f764f52e84f62ef1837fe8a6960c8b94af40f9b0[m
+Author: RaquelRedondo <raquelro22@gmail.com>
+Date:   Tue Jun 7 19:04:11 2016 +0100
+
+    nothing changed
+
+[33mcommit 3d88768da5cf389ccb60efbb852a944f0f433d6b[m
+Author: RaquelRedondo <raquelro22@gmail.com>
+Date:   Mon May 30 23:22:34 2016 +0100
+
+    Changed little view size
+
+[33mcommit 5dba040fcbdc74dac4cc7b645c21bea495d0d3e6[m
+Author: RaquelRedondo <raquelro22@gmail.com>
+Date:   Sat May 28 01:13:48 2016 +0100
+
+    'Fixed' zoom for the zooming recantangles

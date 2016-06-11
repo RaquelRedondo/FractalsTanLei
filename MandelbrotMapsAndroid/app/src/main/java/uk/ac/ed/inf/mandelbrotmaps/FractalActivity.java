@@ -76,6 +76,8 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
     private AbstractFractalView littleFractalView;
     private View borderView;
     private RelativeLayout relativeLayout;
+    private TextView xCoordView;
+    private TextView yCoordView;
 
     // Fractal locations
     private MandelbrotJuliaLocation mjLocation;
@@ -196,7 +198,19 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
         mjLocation = new MandelbrotJuliaLocation(juliaGraphArea, juliaParams);
         fractalView.loadLocation(mjLocation);
 
+
         gestureDetector = new ScaleGestureDetector(this, this);
+
+        xCoordView = new TextView(this);
+        xCoordView.setText("HOLA COMO ESTAS");
+
+        relativeLayout.addView(xCoordView);
+
+        //relativeLayout.addView(xCoordView, lp);
+        //relativeLayout.addView(yCoordView);
+
+        //relativeLayout.bringChildToFront(xCoordView);
+        //relativeLayout.bringChildToFront(yCoordView);
     }
 
     // When destroyed, kill all render threads

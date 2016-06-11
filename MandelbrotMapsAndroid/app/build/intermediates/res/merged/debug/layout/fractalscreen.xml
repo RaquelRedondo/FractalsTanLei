@@ -3,16 +3,17 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <uk.ac.ed.inf.mandelbrotmaps.AbstractFractalView
-        android:id="@+id/mainFractalView"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
-
-    <uk.ac.ed.inf.mandelbrotmaps.AbstractFractalView
-        android:id="@+id/littleFractalView"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
-
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    android:id="@+id/yTextView"
+    android:layout_alignBottom="@+id/xTextView"
+    android:layout_toRightOf="@+id/xTextView"
+    android:layout_toEndOf="@+id/xTextView"
+    android:textColor="#ffffff"
+    android:textSize="150dp" />
+    
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,14 +22,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/yTextView"
-        android:layout_alignBottom="@+id/xTextView"
-        android:layout_toRightOf="@+id/xTextView"
-        android:layout_toEndOf="@+id/xTextView" />
 
 </RelativeLayout>
