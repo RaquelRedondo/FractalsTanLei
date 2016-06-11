@@ -55,7 +55,8 @@ public abstract class AbstractFractalView extends View {
         ZOOMING,
         DRAGGING,
         STATIC,
-        ROTATING
+        ROTATING,
+        RESET
     }
 
     public ControlMode controlmode = ControlMode.STATIC;

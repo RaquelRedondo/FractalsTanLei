@@ -40,6 +40,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.io.File;
 
 import uk.ac.ed.inf.mandelbrotmaps.AbstractFractalView.FractalViewSize;
@@ -730,14 +732,6 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
             && touchY >= boxCoords[1] - boxHeight/2;
     }
 
-    /* Check to see if input x and y are in one particular switch box */
-    private boolean touchingInSwitchBox(float touchX, float touchY, float[] boxCoords, float boxHeight, float boxWidth) {
-        return touchX <= boxCoords[0] + boxWidth
-                && touchX >= boxCoords[0]
-                && touchY <= boxCoords[1] + boxHeight
-                && touchY >= boxCoords[1];
-    }
-
     /* Check to see if input x and y are in any of the Julia point boxes*/
     private boolean touchingInJuliaPointBox(float touchX, float touchY) {
         double[] juliaParam = ((JuliaFractalView) fractalView).getJuliaParam();
@@ -1092,7 +1086,8 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
     @Override
     public void onResetClicked() {
         this.fractalView.reset();
-        this.littleFractalView.reset();
+        //this.littleFractalView.reset();
+        updateLittleJulia(888f,540f);
         this.dismissMenuDialog();
     }
 

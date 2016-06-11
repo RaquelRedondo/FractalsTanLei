@@ -14,7 +14,7 @@ public class MandelbrotFractalView extends AbstractFractalView {
     public float lastTouchY = 0;
 
     public double[] currentJuliaParams = null;
-    private float[] pinCoords = new float[2];
+    public float[] pinCoords = new float[2];
 
     Paint outerPinPaint;
     Paint innerPinPaint;
@@ -34,8 +34,8 @@ public class MandelbrotFractalView extends AbstractFractalView {
     int pointTwoAlpha = 150;
     int pointThreeAlpha = 150;
 
-    public float smallPinRadius = 2.5f; //Originally 5.0f
-    public float largePinRadius = 10.0f; //Originally 20.0f
+    public float smallPinRadius = 5.0f;
+    public float largePinRadius = 20.0f;
 
     public MandelbrotFractalView(Context context, FractalViewSize size) {
         super(context, size);
@@ -107,6 +107,13 @@ public class MandelbrotFractalView extends AbstractFractalView {
             float[] mappedCoordsTL2 = new float[2];
             float[] mappedCoordsTL3 = new float[2];
             if (fractalViewSize == FractalViewSize.LARGE) {
+
+                if (controlmode == ControlMode.RESET){
+                    pinCoords[0] = 0;
+                    pinCoords[1] = 0;
+                    controlmode = ControlMode.STATIC;
+                    canvas.drawCircle(0, 173, largePinRadius, outerPinPaint);
+                }
 
                 matrix.mapPoints(mappedCoordsTL1, pointOneCoords);
 
@@ -274,5 +281,10 @@ public class MandelbrotFractalView extends AbstractFractalView {
         pointThreePaint.setAlpha(pointOneAlpha);
 
         invalidate();
+    }
+
+    public void setPinCoords(float x, float y){
+        pinCoords[0] = x;
+        pinCoords[1] = y;
     }
 }
