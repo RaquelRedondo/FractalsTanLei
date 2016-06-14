@@ -234,12 +234,6 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
         rl.addView(yCoordView, coordLP);
 
         relativeLayout.addView(rl, relativeParams);
-
-        //relativeLayout.addView(xCoordView, lp);
-        //relativeLayout.addView(yCoordView);
-
-        //relativeLayout.bringChildToFront(xCoordView);
-        //relativeLayout.bringChildToFront(yCoordView);
     }
 
     // When destroyed, kill all render threads
