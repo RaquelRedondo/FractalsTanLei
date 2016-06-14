@@ -7,7 +7,7 @@ import butterknife.ButterKnife.Finder;
 public class DetailControlDialog$$ViewInjector {
   public static void inject(Finder finder, final uk.ac.ed.inf.mandelbrotmaps.detail.DetailControlDialog target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131558472, "field 'applyButton' and method 'onDetailApplyButtonClicked'");
+    view = finder.findRequiredView(source, 2131558470, "field 'applyButton' and method 'onDetailApplyButtonClicked'");
     target.applyButton = (android.widget.Button) view;
     view.setOnClickListener(
       new android.view.View.OnClickListener() {
@@ -17,7 +17,7 @@ public class DetailControlDialog$$ViewInjector {
           target.onDetailApplyButtonClicked();
         }
       });
-    view = finder.findRequiredView(source, 2131558473, "field 'defaultsButton' and method 'onDefaultDetailButtonClicked'");
+    view = finder.findRequiredView(source, 2131558471, "field 'defaultsButton' and method 'onDefaultDetailButtonClicked'");
     target.defaultsButton = (android.widget.Button) view;
     view.setOnClickListener(
       new android.view.View.OnClickListener() {
@@ -27,7 +27,7 @@ public class DetailControlDialog$$ViewInjector {
           target.onDefaultDetailButtonClicked();
         }
       });
-    view = finder.findRequiredView(source, 2131558474, "field 'cancelButton' and method 'onDetailCancelButtonClicked'");
+    view = finder.findRequiredView(source, 2131558472, "field 'cancelButton' and method 'onDetailCancelButtonClicked'");
     target.cancelButton = (android.widget.Button) view;
     view.setOnClickListener(
       new android.view.View.OnClickListener() {
@@ -37,13 +37,13 @@ public class DetailControlDialog$$ViewInjector {
           target.onDetailCancelButtonClicked();
         }
       });
-    view = finder.findRequiredView(source, 2131558468, "field 'mandelbrotBar'");
+    view = finder.findRequiredView(source, 2131558466, "field 'mandelbrotBar'");
     target.mandelbrotBar = (android.widget.SeekBar) view;
-    view = finder.findRequiredView(source, 2131558470, "field 'juliaBar'");
+    view = finder.findRequiredView(source, 2131558468, "field 'juliaBar'");
     target.juliaBar = (android.widget.SeekBar) view;
-    view = finder.findRequiredView(source, 2131558469, "field 'mandelbrotText'");
+    view = finder.findRequiredView(source, 2131558467, "field 'mandelbrotText'");
     target.mandelbrotText = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131558471, "field 'juliaText'");
+    view = finder.findRequiredView(source, 2131558469, "field 'juliaText'");
     target.juliaText = (android.widget.TextView) view;
   }
 

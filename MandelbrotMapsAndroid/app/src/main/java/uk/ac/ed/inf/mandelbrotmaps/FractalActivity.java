@@ -9,7 +9,6 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -21,7 +20,6 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -35,15 +33,12 @@ import android.view.View.OnLongClickListener;
 import android.view.View.OnTouchListener;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.io.File;
 
@@ -204,36 +199,10 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
 
         gestureDetector = new ScaleGestureDetector(this, this);
 
-        RelativeLayout rl = new RelativeLayout(this);
-        RelativeLayout.LayoutParams relativeParams = new RelativeLayout.LayoutParams(
-                LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-
-        rl.setGravity(Gravity.BOTTOM);
-
         xCoordView = new TextView(this);
         yCoordView = new TextView(this);
 
-        xCoordView.setText("HOLA COMO ESTAS");
-        //yCoordView.setText("Esto es una prueba");
-
-        xCoordView.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
-        //yCoordView.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
-
-
-
-        xCoordView.setGravity(Gravity.BOTTOM);
-        //yCoordView.setGravity(Gravity.BOTTOM);
-        xCoordView.setId(R.id.xCoord);
-        rl.addView(xCoordView);
-
-
-        yCoordView.setText("Estas 253625646");
-        LayoutParams coordLP = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-        coordLP.addRule(RelativeLayout.RIGHT_OF, xCoordView.getId());
-        coordLP.setMargins(15,0,0,0);
-        rl.addView(yCoordView, coordLP);
-
-        relativeLayout.addView(rl, relativeParams);
+        createCoordinates();
     }
 
     // When destroyed, kill all render threads
@@ -603,6 +572,7 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
 
         switch (evt.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN:
+                // if touching littlefractal view
                 if (showingLittle && evt.getX() <= borderView.getWidth() && evt.getY() <= borderView.getHeight()) {
                     borderView.setBackgroundColor(Color.DKGRAY);
                     littleFractalSelected = true;
@@ -657,6 +627,7 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
                         dragFractal(evt);
                     } else if (showingLittle && !littleFractalSelected && fractalType == FractalTypeEnum.MANDELBROT && fractalView.holdingPin) {
                         updateLittleJulia(evt.getX(), evt.getY());
+
                     }
                 }
 
@@ -939,10 +910,12 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
             return;
 
         fractalView.invalidate();
+        updateCoordValues(x,y);
 
         if (showingLittle) {
             double[] juliaParams = ((MandelbrotFractalView) fractalView).getJuliaParams(x, y);
             ((JuliaFractalView) littleFractalView).setJuliaParameter(juliaParams[0], juliaParams[1]);
+
         } else {
             ((MandelbrotFractalView) fractalView).getJuliaParams(x, y);
             addLittleView(false);
@@ -1194,6 +1167,49 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
     @Override
     public void onCancelClicked() {
         this.dismissDetailDialog();
+    }
+
+    public void createCoordinates(){
+
+        RelativeLayout rl = new RelativeLayout(this);
+        RelativeLayout.LayoutParams relativeParams = new RelativeLayout.LayoutParams(
+                LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+
+        rl.setGravity(Gravity.BOTTOM);
+
+        double[] coord = mjLocation.getMandelbrotGraphArea();
+        double xCenter = coord[2]/2 + coord[0];
+        xCoordView.setText(String.valueOf(xCenter));
+
+        xCoordView.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+
+        xCoordView.setGravity(Gravity.BOTTOM);
+        xCoordView.setId(R.id.xCoord);
+        rl.addView(xCoordView);
+
+
+        double yCenter = 1.52 - coord[1];
+        yCoordView.setText(String.valueOf(yCenter));
+
+        LayoutParams coordLP = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+        coordLP.addRule(RelativeLayout.RIGHT_OF, xCoordView.getId());
+        coordLP.setMargins(15,0,0,0);
+        rl.addView(yCoordView, coordLP);
+
+        relativeLayout.addView(rl, relativeParams);
+    }
+
+    public void updateCoordValues(float x, float y){
+
+        double[] coord = fractalView.graphArea;
+        xCoordView.setText(String.valueOf(x));
+        double width, height;
+        double pixelSize = fractalView.getPixelSize();
+
+        width = x * pixelSize + coord[0];
+        height = coord[1] - y * pixelSize;
+        xCoordView.setText(String.valueOf(width));
+        yCoordView.setText(String.valueOf(height));
     }
 
 }

@@ -60,10 +60,6 @@
         "source": "/home/raquel/Desktop/Exercises/FractalsTanLei/FractalsTanLei/MandelbrotMapsAndroid/app/src/main/res/layout/fractalscreen.xml"
     },
     {
-        "merged": "/home/raquel/Desktop/Exercises/FractalsTanLei/FractalsTanLei/MandelbrotMapsAndroid/app/build/intermediates/res/merged/debug/layout/coordinates.xml",
-        "source": "/home/raquel/Desktop/Exercises/FractalsTanLei/FractalsTanLei/MandelbrotMapsAndroid/app/src/main/res/layout/coordinates.xml"
-    },
-    {
         "merged": "/home/raquel/Desktop/Exercises/FractalsTanLei/FractalsTanLei/MandelbrotMapsAndroid/app/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
         "source": "/home/raquel/Desktop/Exercises/FractalsTanLei/FractalsTanLei/MandelbrotMapsAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/res/layout/abc_action_mode_bar.xml"
     },
