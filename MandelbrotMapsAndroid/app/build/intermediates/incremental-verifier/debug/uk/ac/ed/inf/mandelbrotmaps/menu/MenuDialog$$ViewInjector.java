@@ -7,7 +7,7 @@ import butterknife.ButterKnife.Finder;
 public class MenuDialog$$ViewInjector {
   public static void inject(Finder finder, final uk.ac.ed.inf.mandelbrotmaps.menu.MenuDialog target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131558474, "method 'resetButtonClicked'");
+    view = finder.findRequiredView(source, 2131558477, "method 'resetButtonClicked'");
     view.setOnClickListener(
       new android.view.View.OnClickListener() {
         @Override public void onClick(
@@ -16,7 +16,7 @@ public class MenuDialog$$ViewInjector {
           target.resetButtonClicked();
         }
       });
-    view = finder.findRequiredView(source, 2131558477, "method 'toggleSmallButtonClicked'");
+    view = finder.findRequiredView(source, 2131558480, "method 'toggleSmallButtonClicked'");
     view.setOnClickListener(
       new android.view.View.OnClickListener() {
         @Override public void onClick(
@@ -25,7 +25,7 @@ public class MenuDialog$$ViewInjector {
           target.toggleSmallButtonClicked();
         }
       });
-    view = finder.findRequiredView(source, 2131558486, "method 'theoremButtonClicked'");
+    view = finder.findRequiredView(source, 2131558489, "method 'theoremButtonClicked'");
     view.setOnClickListener(
       new android.view.View.OnClickListener() {
         @Override public void onClick(
@@ -34,7 +34,7 @@ public class MenuDialog$$ViewInjector {
           target.theoremButtonClicked();
         }
       });
-    view = finder.findRequiredView(source, 2131558483, "method 'settingsButtonClicked'");
+    view = finder.findRequiredView(source, 2131558486, "method 'settingsButtonClicked'");
     view.setOnClickListener(
       new android.view.View.OnClickListener() {
         @Override public void onClick(
@@ -43,7 +43,7 @@ public class MenuDialog$$ViewInjector {
           target.settingsButtonClicked();
         }
       });
-    view = finder.findRequiredView(source, 2131558480, "method 'detailButtonClicked'");
+    view = finder.findRequiredView(source, 2131558483, "method 'detailButtonClicked'");
     view.setOnClickListener(
       new android.view.View.OnClickListener() {
         @Override public void onClick(
@@ -52,7 +52,7 @@ public class MenuDialog$$ViewInjector {
           target.detailButtonClicked();
         }
       });
-    view = finder.findRequiredView(source, 2131558489, "method 'saveButtonClicked'");
+    view = finder.findRequiredView(source, 2131558492, "method 'saveButtonClicked'");
     view.setOnClickListener(
       new android.view.View.OnClickListener() {
         @Override public void onClick(
@@ -61,7 +61,7 @@ public class MenuDialog$$ViewInjector {
           target.saveButtonClicked();
         }
       });
-    view = finder.findRequiredView(source, 2131558492, "method 'shareButtonClicked'");
+    view = finder.findRequiredView(source, 2131558495, "method 'shareButtonClicked'");
     view.setOnClickListener(
       new android.view.View.OnClickListener() {
         @Override public void onClick(
@@ -70,7 +70,7 @@ public class MenuDialog$$ViewInjector {
           target.shareButtonClicked();
         }
       });
-    view = finder.findRequiredView(source, 2131558495, "method 'helpButtonClicked'");
+    view = finder.findRequiredView(source, 2131558498, "method 'helpButtonClicked'");
     view.setOnClickListener(
       new android.view.View.OnClickListener() {
         @Override public void onClick(

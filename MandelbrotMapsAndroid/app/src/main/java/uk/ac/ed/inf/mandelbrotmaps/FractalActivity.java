@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -21,6 +22,7 @@ import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -33,6 +35,7 @@ import android.view.View.OnLongClickListener;
 import android.view.View.OnTouchListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
@@ -201,10 +204,36 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
 
         gestureDetector = new ScaleGestureDetector(this, this);
 
-        xCoordView = new TextView(this);
-        xCoordView.setText("HOLA COMO ESTAS");
+        RelativeLayout rl = new RelativeLayout(this);
+        RelativeLayout.LayoutParams relativeParams = new RelativeLayout.LayoutParams(
+                LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 
-        relativeLayout.addView(xCoordView);
+        rl.setGravity(Gravity.BOTTOM);
+
+        xCoordView = new TextView(this);
+        yCoordView = new TextView(this);
+
+        xCoordView.setText("HOLA COMO ESTAS");
+        //yCoordView.setText("Esto es una prueba");
+
+        xCoordView.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+        //yCoordView.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+
+
+
+        xCoordView.setGravity(Gravity.BOTTOM);
+        //yCoordView.setGravity(Gravity.BOTTOM);
+        xCoordView.setId(R.id.xCoord);
+        rl.addView(xCoordView);
+
+
+        yCoordView.setText("Estas 253625646");
+        LayoutParams coordLP = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+        coordLP.addRule(RelativeLayout.RIGHT_OF, xCoordView.getId());
+        coordLP.setMargins(15,0,0,0);
+        rl.addView(yCoordView, coordLP);
+
+        relativeLayout.addView(rl, relativeParams);
 
         //relativeLayout.addView(xCoordView, lp);
         //relativeLayout.addView(yCoordView);
