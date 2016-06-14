@@ -4,17 +4,17 @@
     api-level="23"
     density="xxhdpi"
     format="7"
-    timestamp="5727666664306" >
+    timestamp="12128992410080" >
 
     <task
         name="javac"
-        duration="375" />
+        duration="320" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="25" />
+        duration="27" />
     <task
         name="verifier"
         duration="3" />
@@ -28,7 +28,7 @@
             location="/home/raquel/Desktop/Exercises/FractalsTanLei/FractalsTanLei/MandelbrotMapsAndroid/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
-    <build timestamp="5727666664306" >
+    <build timestamp="12128992410080" >
         <artifact
             location="/home/raquel/Desktop/Exercises/FractalsTanLei/FractalsTanLei/MandelbrotMapsAndroid/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
             type="DEX" />

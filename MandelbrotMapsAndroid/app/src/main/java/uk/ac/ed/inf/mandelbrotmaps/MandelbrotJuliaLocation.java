@@ -7,7 +7,7 @@ class MandelbrotJuliaLocation {
     private double[] juliaGraphArea;
     private double[] juliaParams;
 
-    public double[] defaultMandelbrotGraphArea = new double[]{-3.25, 1.52, 5};
+    public double[] defaultMandelbrotGraphArea = new double[]{-3.25, 1.520270262, 5};
     public double[] defaultJuliaGraphArea = new double[]{-2.2, 1.25, 4.3};
     public double[] defaultJuliaParams = new double[]{-0.6, -0.01875}; //Julia params place it right in the middle of the Mandelbrot home.
 

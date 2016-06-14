@@ -18,6 +18,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.text.InputType;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.Gravity;
@@ -33,6 +34,7 @@ import android.view.View.OnLongClickListener;
 import android.view.View.OnTouchListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
@@ -76,6 +78,7 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
     private RelativeLayout relativeLayout;
     private TextView xCoordView;
     private TextView yCoordView;
+    private EditText xCoordText;
 
     // Fractal locations
     private MandelbrotJuliaLocation mjLocation;
@@ -199,10 +202,22 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
 
         gestureDetector = new ScaleGestureDetector(this, this);
 
+        //Instantiate  and initialize the views for the coordinates
         xCoordView = new TextView(this);
         yCoordView = new TextView(this);
-
+        xCoordText = new EditText(this);
         createCoordinates();
+
+        xCoordText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                String text = String.valueOf(xCoordText.getText());
+                updateLittleJulia(Float.valueOf(text), 1);
+
+                return false;
+            }
+        });
+
     }
 
     // When destroyed, kill all render threads
@@ -783,7 +798,6 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
         return touchingPin;
     }
 
-
     private void startDragging(MotionEvent evt) {
         dragLastX = (int) evt.getX();
         dragLastY = (int) evt.getY();
@@ -910,7 +924,7 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
             return;
 
         fractalView.invalidate();
-        updateCoordValues(x,y);
+        updateCoordView(x,y);
 
         if (showingLittle) {
             double[] juliaParams = ((MandelbrotFractalView) fractalView).getJuliaParams(x, y);
@@ -1172,6 +1186,10 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
     public void createCoordinates(){
 
         RelativeLayout rl = new RelativeLayout(this);
+        xCoordView.setBackgroundColor(getResources().getColor(android.R.color.black));
+        xCoordView.setAlpha(0.80f);
+        yCoordView.setBackgroundColor(getResources().getColor(android.R.color.black));
+        yCoordView.setAlpha(0.80f);
         RelativeLayout.LayoutParams relativeParams = new RelativeLayout.LayoutParams(
                 LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 
@@ -1196,10 +1214,15 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
         coordLP.setMargins(15,0,0,0);
         rl.addView(yCoordView, coordLP);
 
+        xCoordText.setText("000");
+        xCoordText.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+        rl.addView(xCoordText);
+
         relativeLayout.addView(rl, relativeParams);
     }
 
-    public void updateCoordValues(float x, float y){
+    public void updateCoordView(float x, float y){
 
         double[] coord = fractalView.graphArea;
         xCoordView.setText(String.valueOf(x));
