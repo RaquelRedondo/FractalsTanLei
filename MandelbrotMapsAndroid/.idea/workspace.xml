@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="135fe8a0-e96d-445d-bfdd-23c473966fdb" name="Default" comment="" />
@@ -32,11 +32,11 @@
       <file leaf-file-name="FractalActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/uk/ac/ed/inf/mandelbrotmaps/FractalActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1010363">
-              <caret line="1252" column="43" selection-start-line="1252" selection-start-column="43" selection-end-line="1252" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.6197183">
+              <caret line="1292" column="5" selection-start-line="1292" selection-start-column="5" selection-end-line="1292" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5021#5100#0" expanded="false" />
+                <element signature="e#5123#5202#0" expanded="false" />
                 <element signature="method#onPause#0;class#FractalActivity#0" expanded="false" />
                 <element signature="method#onSaveInstanceState#0;class#FractalActivity#0" expanded="false" />
                 <element signature="method#finish#0;class#FractalActivity#0" expanded="false" />
@@ -60,7 +60,7 @@
                 <element signature="method#onLongClick#0;class#FractalActivity#0" expanded="false" />
                 <element signature="method#showToastOnUIThread#0;class#FractalActivity#0" expanded="false" />
                 <element signature="method#chooseNewActivePointer#0;class#FractalActivity#0" expanded="false" />
-                <element signature="e#38084#38181#0" expanded="false" />
+                <element signature="e#38297#38394#0" expanded="false" />
                 <element signature="method#launchJulia#0;class#FractalActivity#0" expanded="false" />
                 <element signature="method#rotateLittleJulia#0;class#FractalActivity#0" expanded="false" />
                 <element signature="method#onSharedPreferenceChanged#0;class#FractalActivity#0" expanded="false" />
@@ -73,7 +73,6 @@
                 <element signature="method#dismissMenuDialog#0;class#FractalActivity#0" expanded="false" />
                 <element signature="method#showDetailDialog#0;class#FractalActivity#0" expanded="false" />
                 <element signature="method#dismissDetailDialog#0;class#FractalActivity#0" expanded="false" />
-                <element signature="method#onResetClicked#0;class#FractalActivity#0" expanded="false" />
                 <element signature="method#onToggleSmallClicked#0;class#FractalActivity#0" expanded="false" />
                 <element signature="method#onTheoremClicked#0;class#FractalActivity#0" expanded="false" />
                 <element signature="method#onSettingsClicked#0;class#FractalActivity#0" expanded="false" />
@@ -83,19 +82,6 @@
                 <element signature="method#onHelpClicked#0;class#FractalActivity#0" expanded="false" />
                 <element signature="method#onApplyChangesClicked#0;class#FractalActivity#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fractalscreen.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fractalscreen.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -1624,9 +1610,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
-    <option name="y" value="24" />
+    <option name="y" value="-4" />
     <option name="width" value="1301" />
-    <option name="height" value="744" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1654,8 +1640,6 @@
     </navigator>
     <panes>
       <pane id="ProjectPane" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
@@ -1665,8 +1649,70 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MandelbrotMapsAndroid" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MandelbrotMapsAndroid" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MandelbrotMapsAndroid" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mandelbrotmaps" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MandelbrotMapsAndroid" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1962,8 +2008,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="false" />
+    <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1979,7 +2025,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24940239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24940239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2013,7 +2059,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2024,7 +2070,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5021#5100#0" expanded="false" />
+            <element signature="e#5123#5202#0" expanded="false" />
             <element signature="method#onPause#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onSaveInstanceState#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#finish#0;class#FractalActivity#0" expanded="false" />
@@ -2048,7 +2094,7 @@
             <element signature="method#onLongClick#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#showToastOnUIThread#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#chooseNewActivePointer#0;class#FractalActivity#0" expanded="false" />
-            <element signature="e#38084#38181#0" expanded="false" />
+            <element signature="e#38297#38394#0" expanded="false" />
             <element signature="method#launchJulia#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#rotateLittleJulia#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onSharedPreferenceChanged#0;class#FractalActivity#0" expanded="false" />
@@ -2061,7 +2107,6 @@
             <element signature="method#dismissMenuDialog#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#showDetailDialog#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#dismissDetailDialog#0;class#FractalActivity#0" expanded="false" />
-            <element signature="method#onResetClicked#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onToggleSmallClicked#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onTheoremClicked#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onSettingsClicked#0;class#FractalActivity#0" expanded="false" />
@@ -2075,14 +2120,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fractalscreen.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/uk/ac/ed/inf/mandelbrotmaps/AbstractFractalView.java">
@@ -2107,7 +2152,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5021#5100#0" expanded="false" />
+            <element signature="e#5123#5202#0" expanded="false" />
             <element signature="method#onPause#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onSaveInstanceState#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#finish#0;class#FractalActivity#0" expanded="false" />
@@ -2131,7 +2176,7 @@
             <element signature="method#onLongClick#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#showToastOnUIThread#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#chooseNewActivePointer#0;class#FractalActivity#0" expanded="false" />
-            <element signature="e#38084#38181#0" expanded="false" />
+            <element signature="e#38297#38394#0" expanded="false" />
             <element signature="method#launchJulia#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#rotateLittleJulia#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onSharedPreferenceChanged#0;class#FractalActivity#0" expanded="false" />
@@ -2144,7 +2189,6 @@
             <element signature="method#dismissMenuDialog#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#showDetailDialog#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#dismissDetailDialog#0;class#FractalActivity#0" expanded="false" />
-            <element signature="method#onResetClicked#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onToggleSmallClicked#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onTheoremClicked#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onSettingsClicked#0;class#FractalActivity#0" expanded="false" />
@@ -2158,14 +2202,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fractalscreen.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/uk/ac/ed/inf/mandelbrotmaps/AbstractFractalView.java">
@@ -2190,7 +2234,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5021#5100#0" expanded="false" />
+            <element signature="e#5123#5202#0" expanded="false" />
             <element signature="method#onPause#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onSaveInstanceState#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#finish#0;class#FractalActivity#0" expanded="false" />
@@ -2214,7 +2258,7 @@
             <element signature="method#onLongClick#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#showToastOnUIThread#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#chooseNewActivePointer#0;class#FractalActivity#0" expanded="false" />
-            <element signature="e#38084#38181#0" expanded="false" />
+            <element signature="e#38297#38394#0" expanded="false" />
             <element signature="method#launchJulia#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#rotateLittleJulia#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onSharedPreferenceChanged#0;class#FractalActivity#0" expanded="false" />
@@ -2227,7 +2271,88 @@
             <element signature="method#dismissMenuDialog#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#showDetailDialog#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#dismissDetailDialog#0;class#FractalActivity#0" expanded="false" />
-            <element signature="method#onResetClicked#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onToggleSmallClicked#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onTheoremClicked#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onSettingsClicked#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onDetailClicked#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onSaveClicked#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onShareClicked#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onHelpClicked#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onApplyChangesClicked#0;class#FractalActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fractalscreen.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/uk/ac/ed/inf/mandelbrotmaps/AbstractFractalView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="677" column="76" selection-start-line="677" selection-start-column="67" selection-end-line="677" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/uk/ac/ed/inf/mandelbrotmaps/FractalActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5123#5202#0" expanded="false" />
+            <element signature="method#onPause#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onSaveInstanceState#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#finish#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#showProgressSpinner#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#hideProgressSpinner#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onKeyDown#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#calculateTLZoom#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#touchingInPointBox#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#touchingInJuliaPointBox#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#juliaIsMisPoint#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#touchingPin#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#startDragging#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#dragFractal#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#stopDragging#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onScaleBegin#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onScale#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onScaleEnd#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onLongClick#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#showToastOnUIThread#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#chooseNewActivePointer#0;class#FractalActivity#0" expanded="false" />
+            <element signature="e#38297#38394#0" expanded="false" />
+            <element signature="method#launchJulia#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#rotateLittleJulia#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#onSharedPreferenceChanged#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#getDetailFromPrefs#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#showIntro#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#showHelpDialog#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#setBookmark#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#loadBookmark#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#showMenuDialog#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#dismissMenuDialog#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#showDetailDialog#0;class#FractalActivity#0" expanded="false" />
+            <element signature="method#dismissDetailDialog#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onToggleSmallClicked#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onTheoremClicked#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onSettingsClicked#0;class#FractalActivity#0" expanded="false" />
@@ -2280,23 +2405,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fractalscreen.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/uk/ac/ed/inf/mandelbrotmaps/FractalActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1010363">
-          <caret line="1252" column="43" selection-start-line="1252" selection-start-column="43" selection-end-line="1252" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.6197183">
+          <caret line="1292" column="5" selection-start-line="1292" selection-start-column="5" selection-end-line="1292" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5021#5100#0" expanded="false" />
+            <element signature="e#5123#5202#0" expanded="false" />
             <element signature="method#onPause#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onSaveInstanceState#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#finish#0;class#FractalActivity#0" expanded="false" />
@@ -2320,7 +2445,7 @@
             <element signature="method#onLongClick#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#showToastOnUIThread#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#chooseNewActivePointer#0;class#FractalActivity#0" expanded="false" />
-            <element signature="e#38084#38181#0" expanded="false" />
+            <element signature="e#38297#38394#0" expanded="false" />
             <element signature="method#launchJulia#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#rotateLittleJulia#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onSharedPreferenceChanged#0;class#FractalActivity#0" expanded="false" />
@@ -2333,7 +2458,6 @@
             <element signature="method#dismissMenuDialog#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#showDetailDialog#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#dismissDetailDialog#0;class#FractalActivity#0" expanded="false" />
-            <element signature="method#onResetClicked#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onToggleSmallClicked#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onTheoremClicked#0;class#FractalActivity#0" expanded="false" />
             <element signature="method#onSettingsClicked#0;class#FractalActivity#0" expanded="false" />

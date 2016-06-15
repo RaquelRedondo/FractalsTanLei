@@ -32,6 +32,7 @@ import android.view.ScaleGestureDetector.OnScaleGestureListener;
 import android.view.View;
 import android.view.View.OnLongClickListener;
 import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -41,6 +42,7 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ZoomControls;
 
 import java.io.File;
 
@@ -76,10 +78,13 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
     private AbstractFractalView littleFractalView;
     private View borderView;
     private RelativeLayout relativeLayout;
-    //private TextView xCoordView;
-    private TextView yCoordView;
     private EditText xCoordText;
     private EditText yCoordText;
+    private ZoomControls zoomControls;
+
+
+    private float xlastPinPos;
+    private float ylastPinPos;
 
     // Fractal locations
     private MandelbrotJuliaLocation mjLocation;
@@ -203,18 +208,21 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
 
         gestureDetector = new ScaleGestureDetector(this, this);
 
+        //Initantiate zoom controls
+        zoomControls = new ZoomControls(this);
+
         //Instantiate  and initialize the views for the coordinates
         //xCoordView = new TextView(this);
-        yCoordView = new TextView(this);
         xCoordText = new EditText(this);
         yCoordText = new EditText(this);
         createCoordinates();
+        createZoomControls();
 
         xCoordText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 String text = String.valueOf(xCoordText.getText());
-                updateLittleJulia(Float.valueOf(text), 540);
+                updateLittleJulia(coordToPixels(text, "X_COORD"), ylastPinPos);
 
                 return false;
             }
@@ -224,7 +232,7 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 String text = String.valueOf(yCoordText.getText());
-                updateLittleJulia(Float.valueOf(text), 540);
+                updateLittleJulia(xlastPinPos, coordToPixels(text, "Y_COORD"));
 
                 return false;
             }
@@ -946,6 +954,9 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
             ((MandelbrotFractalView) fractalView).getJuliaParams(x, y);
             addLittleView(false);
         }
+
+        xlastPinPos = x;
+        ylastPinPos = y;
     }
 
     private void rotateLittleJulia(){
@@ -1222,14 +1233,15 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
         xCoordText.setAlpha(0.80f);
         xCoordText.setId(R.id.xCoord);
 
+        xCoordText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_NUMBER_FLAG_SIGNED);
         xCoordText.setText(String.valueOf(xCenter));
-        xCoordText.setInputType(InputType.TYPE_CLASS_NUMBER);
         xCoordText.setGravity(Gravity.BOTTOM);
         rl.addView(xCoordText);
 
+        yCoordText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_NUMBER_FLAG_SIGNED);
         yCoordText.setText(String.valueOf(yCenter));
-
-        //yCoordView.setText(String.valueOf(yCenter));
+        yCoordText.setBackgroundColor(getResources().getColor(android.R.color.black));
+        yCoordText.setAlpha(0.80f);
 
         LayoutParams coordLP = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
         coordLP.addRule(RelativeLayout.RIGHT_OF, xCoordText.getId());
@@ -1250,8 +1262,34 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
 
         width = x * pixelSize + coord[0];
         height = coord[1] - y * pixelSize;
-        xCoordText.setText(String.valueOf(x));
+        xCoordText.setText(String.valueOf(width));
         yCoordText.setText(String.valueOf(height));
+    }
+
+    private float coordToPixels(String coord, String coordinate){
+        float pixelPos;
+        double[] grahArea;
+        float pixelSize = (float)fractalView.getPixelSize();
+        float coordf = Float.valueOf(coord);
+
+        grahArea = fractalView.graphArea;
+
+        if (coordinate == "X_COORD"){
+            pixelPos = (coordf  - (float)grahArea[0])/pixelSize;
+        } else if (coordinate == "Y_COORD"){
+            pixelPos = ((float)grahArea[1] - coordf)/pixelSize;
+        } else return Float.NaN;
+
+        return (float) pixelPos;
+    }
+
+    private void createZoomControls(){
+
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        lp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+        lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        relativeLayout.addView(zoomControls, lp);
+
     }
 
 }
