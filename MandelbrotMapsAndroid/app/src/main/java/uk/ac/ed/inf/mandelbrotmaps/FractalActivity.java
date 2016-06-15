@@ -76,9 +76,10 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
     private AbstractFractalView littleFractalView;
     private View borderView;
     private RelativeLayout relativeLayout;
-    private TextView xCoordView;
+    //private TextView xCoordView;
     private TextView yCoordView;
     private EditText xCoordText;
+    private EditText yCoordText;
 
     // Fractal locations
     private MandelbrotJuliaLocation mjLocation;
@@ -203,16 +204,27 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
         gestureDetector = new ScaleGestureDetector(this, this);
 
         //Instantiate  and initialize the views for the coordinates
-        xCoordView = new TextView(this);
+        //xCoordView = new TextView(this);
         yCoordView = new TextView(this);
         xCoordText = new EditText(this);
+        yCoordText = new EditText(this);
         createCoordinates();
 
         xCoordText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 String text = String.valueOf(xCoordText.getText());
-                updateLittleJulia(Float.valueOf(text), 1);
+                updateLittleJulia(Float.valueOf(text), 540);
+
+                return false;
+            }
+        });
+
+        yCoordText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                String text = String.valueOf(yCoordText.getText());
+                updateLittleJulia(Float.valueOf(text), 540);
 
                 return false;
             }
@@ -1186,10 +1198,10 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
     public void createCoordinates(){
 
         RelativeLayout rl = new RelativeLayout(this);
-        xCoordView.setBackgroundColor(getResources().getColor(android.R.color.black));
-        xCoordView.setAlpha(0.80f);
-        yCoordView.setBackgroundColor(getResources().getColor(android.R.color.black));
-        yCoordView.setAlpha(0.80f);
+        //xCoordView.setBackgroundColor(getResources().getColor(android.R.color.black));
+        //xCoordView.setAlpha(0.80f);
+        //yCoordView.setBackgroundColor(getResources().getColor(android.R.color.black));
+        //yCoordView.setAlpha(0.80f);
         RelativeLayout.LayoutParams relativeParams = new RelativeLayout.LayoutParams(
                 LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 
@@ -1197,27 +1209,34 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
 
         double[] coord = mjLocation.getMandelbrotGraphArea();
         double xCenter = coord[2]/2 + coord[0];
-        xCoordView.setText(String.valueOf(xCenter));
-
-        xCoordView.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
-
-        xCoordView.setGravity(Gravity.BOTTOM);
-        xCoordView.setId(R.id.xCoord);
-        rl.addView(xCoordView);
-
-
         double yCenter = 1.52 - coord[1];
-        yCoordView.setText(String.valueOf(yCenter));
+        //xCoordView.setText(String.valueOf(xCenter));
+
+        //xCoordView.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+
+        //xCoordView.setGravity(Gravity.BOTTOM);
+        //xCoordView.setId(R.id.xCoord);
+        //rl.addView(xCoordView);
+
+        xCoordText.setBackgroundColor(getResources().getColor(android.R.color.black));
+        xCoordText.setAlpha(0.80f);
+        xCoordText.setId(R.id.xCoord);
+
+        xCoordText.setText(String.valueOf(xCenter));
+        xCoordText.setInputType(InputType.TYPE_CLASS_NUMBER);
+        xCoordText.setGravity(Gravity.BOTTOM);
+        rl.addView(xCoordText);
+
+        yCoordText.setText(String.valueOf(yCenter));
+
+        //yCoordView.setText(String.valueOf(yCenter));
 
         LayoutParams coordLP = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-        coordLP.addRule(RelativeLayout.RIGHT_OF, xCoordView.getId());
-        coordLP.setMargins(15,0,0,0);
-        rl.addView(yCoordView, coordLP);
+        coordLP.addRule(RelativeLayout.RIGHT_OF, xCoordText.getId());
+        //coordLP.setMargins(15,0,0,0);
+        rl.addView(yCoordText, coordLP);
 
-        xCoordText.setText("000");
-        xCoordText.setInputType(InputType.TYPE_CLASS_NUMBER);
 
-        rl.addView(xCoordText);
 
         relativeLayout.addView(rl, relativeParams);
     }
@@ -1225,14 +1244,14 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
     public void updateCoordView(float x, float y){
 
         double[] coord = fractalView.graphArea;
-        xCoordView.setText(String.valueOf(x));
+        xCoordText.setText(String.valueOf(x));
         double width, height;
         double pixelSize = fractalView.getPixelSize();
 
         width = x * pixelSize + coord[0];
         height = coord[1] - y * pixelSize;
-        xCoordView.setText(String.valueOf(width));
-        yCoordView.setText(String.valueOf(height));
+        xCoordText.setText(String.valueOf(x));
+        yCoordText.setText(String.valueOf(height));
     }
 
 }
