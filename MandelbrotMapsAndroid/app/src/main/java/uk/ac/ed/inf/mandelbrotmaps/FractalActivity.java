@@ -85,6 +85,7 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
 
     private float xlastPinPos = 888f;
     private float ylastPinPos = 540;
+    private double[] textCoord = new double[2];
 
     // Fractal locations
     private MandelbrotJuliaLocation mjLocation;
@@ -123,6 +124,7 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
     public boolean tanLeiToggled = true;
     public boolean TLPointSelected = false;
     public boolean currentlyTLZooming = false;
+    public boolean hasBeenDragged = false;
     public double[][] misPoints = {
             {-2.0, 0.0},
             {0.0, 1.0},
@@ -222,8 +224,9 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 String text = String.valueOf(xCoordText.getText());
-                updateLittleJulia(coordToPixels(text, "X_COORD"), ylastPinPos);
-
+                textCoord[0] = Double.parseDouble(text);
+                updateLittleJulia((float)coordToPixels(textCoord[0], "X_COORD"), ylastPinPos);
+                hasBeenDragged = false;
                 return false;
             }
         });
@@ -232,8 +235,9 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 String text = String.valueOf(yCoordText.getText());
-                updateLittleJulia(xlastPinPos, coordToPixels(text, "Y_COORD"));
-
+                textCoord[1] = Double.parseDouble(text);
+                updateLittleJulia(xlastPinPos, (float)coordToPixels(textCoord[1], "Y_COORD"));
+                hasBeenDragged = false;
                 return false;
             }
         });
@@ -529,7 +533,6 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
                             showToastOnUIThread(toastText, Toast.LENGTH_LONG);
                         }
                     }
-                    return;
                 }
             }).start();
         } else {
@@ -660,6 +663,7 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
                 if (!gestureDetector.isInProgress()) {
                     if (currentlyDragging) {
                         dragFractal(evt);
+                        hasBeenDragged = true;
                     } else if (showingLittle && !littleFractalSelected && fractalType == FractalTypeEnum.MANDELBROT && fractalView.holdingPin) {
                         updateLittleJulia(evt.getX(), evt.getY());
 
@@ -825,6 +829,7 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
 
         fractalView.startDragging();
         currentlyDragging = true;
+        hasBeenDragged = true;
     }
 
     private void dragFractal(MotionEvent evt) {
@@ -960,6 +965,9 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
             ((MandelbrotFractalView) fractalView).getJuliaParams(x, y);
             addLittleView(false);
         }
+
+        Log.d("StringPin", String.valueOf(x));
+        Log.d("StringPin", String.valueOf(y));
 
         xlastPinPos = x;
         ylastPinPos = y;
@@ -1265,21 +1273,20 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
         yCoordText.setText(String.valueOf(height));
     }
 
-    private float coordToPixels(String coord, String coordinate){
-        float pixelPos;
+    private double coordToPixels(double coord, String coordinate){
+        double pixelPos;
         double[] grahArea;
-        float pixelSize = (float)fractalView.getPixelSize();
-        float coordf = Float.valueOf(coord);
+        double pixelSize = (double)fractalView.getPixelSize();
 
         grahArea = fractalView.graphArea;
 
         if (coordinate.equals("X_COORD")){
-            pixelPos = (coordf  - (float)grahArea[0])/pixelSize;
+            pixelPos = (coord  - grahArea[0])/pixelSize;
         } else if (coordinate.equals("Y_COORD")){
-            pixelPos = ((float)grahArea[1] - coordf)/pixelSize;
-        } else return Float.NaN;
+            pixelPos = (grahArea[1] - coord)/pixelSize;
+        } else return Double.NaN;
 
-        return (float) pixelPos;
+        return pixelPos;
     }
 
     private void createZoomControls(){
@@ -1296,13 +1303,31 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
                 //fractalView.centerView(xlastPinPos, ylastPinPos);
                 currentlyTLZooming = false;
                 currentlyDragging = false;
+                if (!hasBeenDragged) {
+                    double xPixel = coordToPixels(0.0, "X_COORD");
+                    double yPixel = coordToPixels(1.0, "Y_COORD");
+                    updateLittleJulia((float) xPixel, (float) yPixel);
+                }
 
+                //fractalView.centerZoom(xlastPinPos, ylastPinPos);
                 fractalView.startZooming(xlastPinPos, ylastPinPos);
                 fractalView.zoomImage(xlastPinPos, ylastPinPos, calculateTLZoom(xlastPinPos, ylastPinPos));
                 //littleFractalView.controlmode = AbstractFractalView.ControlMode.ROTATING;
                 //updateLittleJulia(dragLastX,dragLastY);
                 //rotateLittleJulia();
                 stopZooming();
+                float[] pinCoords = ((MandelbrotFractalView) fractalView).getPinCoords();
+                float x = pinCoords[0];
+                float y = pinCoords[1];
+                xlastPinPos = pinCoords[0];
+                ylastPinPos = pinCoords[1];
+                fractalView.setMandelbrotGraphArea();
+                Log.d("CenterPin", String.valueOf(xlastPinPos));
+                Log.d("CenterPin", String.valueOf(ylastPinPos));
+
+
+                Log.d("CenterPin", String.valueOf(x));
+                Log.d("CenterPin", String.valueOf(y));
             }
         });
 

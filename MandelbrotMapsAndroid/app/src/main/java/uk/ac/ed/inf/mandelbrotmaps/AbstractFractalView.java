@@ -8,6 +8,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.os.Environment;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -974,6 +975,15 @@ public abstract class AbstractFractalView extends View {
     }
 
     abstract int pixelInSet(int xPixel, int yPixel, int maxIterations);
+
+    public void setMandelbrotGraphArea(){
+        float heightCenter = getHeight()/2;
+        float widthCenter = getWidth()/2;
+
+        Log.d("NO", String.valueOf(heightCenter));
+        Log.d("NO", String.valueOf(widthCenter));
+    }
+
 }
 
 

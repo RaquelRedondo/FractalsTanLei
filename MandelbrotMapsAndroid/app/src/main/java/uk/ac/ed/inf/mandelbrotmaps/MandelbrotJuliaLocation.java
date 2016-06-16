@@ -1,6 +1,7 @@
 package uk.ac.ed.inf.mandelbrotmaps;
 
 import android.util.Log;
+import android.view.View;
 
 class MandelbrotJuliaLocation {
     private double[] mandelbrotGraphArea;
