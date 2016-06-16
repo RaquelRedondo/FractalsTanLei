@@ -1221,13 +1221,6 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
         double[] coord = mjLocation.getMandelbrotGraphArea();
         double xCenter = coord[2]/2 + coord[0];
         double yCenter = 1.52 - coord[1];
-        //xCoordView.setText(String.valueOf(xCenter));
-
-        //xCoordView.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
-
-        //xCoordView.setGravity(Gravity.BOTTOM);
-        //xCoordView.setId(R.id.xCoord);
-        //rl.addView(xCoordView);
 
         xCoordText.setBackgroundColor(getResources().getColor(android.R.color.black));
         xCoordText.setAlpha(0.80f);
@@ -1274,9 +1267,9 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
 
         grahArea = fractalView.graphArea;
 
-        if (coordinate == "X_COORD"){
+        if (coordinate.equals("X_COORD")){
             pixelPos = (coordf  - (float)grahArea[0])/pixelSize;
-        } else if (coordinate == "Y_COORD"){
+        } else if (coordinate.equals("Y_COORD")){
             pixelPos = ((float)grahArea[1] - coordf)/pixelSize;
         } else return Float.NaN;
 
@@ -1285,10 +1278,12 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
 
     private void createZoomControls(){
 
+        zoomControls.setAlpha(.90f);
         RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         lp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
         lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         relativeLayout.addView(zoomControls, lp);
+
 
     }
 
