@@ -287,4 +287,10 @@ public class MandelbrotFractalView extends AbstractFractalView {
         pinCoords[0] = x;
         pinCoords[1] = y;
     }
+
+    public void centerView (float xPos, float yPos){
+        pixelSize = getPixelSize();
+
+
+    }
 }

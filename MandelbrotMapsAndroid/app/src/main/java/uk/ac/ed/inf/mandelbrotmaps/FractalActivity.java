@@ -83,8 +83,8 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
     private ZoomControls zoomControls;
 
 
-    private float xlastPinPos;
-    private float ylastPinPos;
+    private float xlastPinPos = 888f;
+    private float ylastPinPos = 540;
 
     // Fractal locations
     private MandelbrotJuliaLocation mjLocation;
@@ -851,6 +851,12 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
         fractalView.stopDragging(false);
     }
 
+    public void stopZooming() {
+        fractalView.stopZooming();
+        stopDragging();
+        currentlyTLZooming = false;
+    }
+
     public boolean onScaleBegin(ScaleGestureDetector detector) {
         fractalView.stopDragging(true);
         fractalView.startZooming(detector.getFocusX(), detector.getFocusY());
@@ -1283,6 +1289,35 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
         lp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
         lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         relativeLayout.addView(zoomControls, lp);
+
+        zoomControls.setOnZoomInClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //fractalView.centerView(xlastPinPos, ylastPinPos);
+                currentlyTLZooming = false;
+                currentlyDragging = false;
+
+                fractalView.startZooming(xlastPinPos, ylastPinPos);
+                fractalView.zoomImage(xlastPinPos, ylastPinPos, calculateTLZoom(xlastPinPos, ylastPinPos));
+                //littleFractalView.controlmode = AbstractFractalView.ControlMode.ROTATING;
+                //updateLittleJulia(dragLastX,dragLastY);
+                //rotateLittleJulia();
+                stopZooming();
+            }
+        });
+
+/*
+        zoomControls.setOnZoomOutClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                double[] testArea = mjLocation.defaultMandelbrotGraphArea;
+                stopDragging();
+                fractalView.setGraphArea(testArea, true);
+                fractalView.invalidate();
+            }
+        });
+*/
 
 
     }
