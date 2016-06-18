@@ -531,7 +531,14 @@ public abstract class AbstractFractalView extends View {
     }
 
     /* Start a zooming gesture */
-    public void startZooming(float initialMidX, float initialMidY) {
+    public void startZoomingIn(float initialMidX, float initialMidY) {
+        controlmode = ControlMode.ZOOMING;
+        hasZoomed = true;
+        clearPixelSizes();
+    }
+
+    /* Start a zooming out gesture */
+    public void startZoomingOut(float initialMidX, float initialMidY) {
         controlmode = ControlMode.ZOOMING;
         hasZoomed = true;
         clearPixelSizes();
