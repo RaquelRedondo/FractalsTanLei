@@ -483,7 +483,7 @@ public abstract class AbstractFractalView extends View {
     /* Zooming */
     /*-----------------------------------------------------------------------------------*/
 	/* Adjust zoom, centred on pixel (xPixel, yPixel) */
-    public void zoomChange(int xPixel, int yPixel, float scale) {
+    public void zoomChangeIn(int xPixel, int yPixel, float scale) {
         stopAllRendering();
 
         double pixelSize = getPixelSize();
@@ -530,29 +530,75 @@ public abstract class AbstractFractalView extends View {
         setGraphArea(newGraphArea, false);
     }
 
-    /* Start a zooming gesture */
-    public void startZoomingIn(float initialMidX, float initialMidY) {
-        controlmode = ControlMode.ZOOMING;
-        hasZoomed = true;
-        clearPixelSizes();
+    public void zoomChangeOut(int xPixel, int yPixel, float scale) {
+        stopAllRendering();
+
+        double pixelSize = getPixelSize();
+
+        double[] oldGraphArea = graphArea;
+        double[] newGraphArea = new double[3];
+
+        double zoomPercentChange = (double) scale; //= (double)(100 + (zoomAmount)) / 100;
+
+        // What is the zoom centre?
+        double zoomCentreX = oldGraphArea[0] + ((double) xPixel * pixelSize);
+        double zoomCentreY = oldGraphArea[1] - ((double) yPixel * pixelSize);
+
+        // Since we're zooming in on a point (the "zoom centre"),
+        // let's now shrink each of the distances from the zoom centre
+        // to the edges of the picture by a constant percentage.
+        double newMinX = zoomCentreX - ((zoomCentreX - oldGraphArea[0])/zoomPercentChange);
+        double newMaxY = zoomCentreY - ((zoomCentreY - oldGraphArea[1])/zoomPercentChange);
+
+        double oldMaxX = oldGraphArea[0] + oldGraphArea[2];
+        double newMaxX = zoomCentreX - ((zoomCentreX - oldMaxX)/zoomPercentChange);
+
+        //TODO fix code zooming properly
+
+        double newWidth = getWidth()*pixelSize/zoomPercentChange;
+        double newHeight = getHeight()*pixelSize/zoomPercentChange;
+
+        double minX = oldGraphArea[0] + (xPixel*pixelSize - newWidth/2);
+        double maxY = oldGraphArea[1] - (yPixel*pixelSize - newHeight/2);
+
+        newGraphArea[0] = minX;
+        newGraphArea[1] = maxY;
+        newGraphArea[2] = newWidth;
+
+        //Log.d(TAG, "Just zoomed - zoom level is " + getZoomLevel());
+
+        setGraphArea(newGraphArea, false);
     }
 
-    /* Start a zooming out gesture */
-    public void startZoomingOut(float initialMidX, float initialMidY) {
+    /* Start a zooming gesture */
+    public void startZooming(float initialMidX, float initialMidY) {
         controlmode = ControlMode.ZOOMING;
         hasZoomed = true;
         clearPixelSizes();
     }
 
     /* Updates zoom level during a scale gesture, but doesn't re-render */
-    public void zoomImage(float focusX, float focusY, float newScaleFactor) {
+    public void zoomImageIn(float focusX, float focusY, float newScaleFactor) {
         midX = focusX;
         midY = focusY;
         scaleFactor = newScaleFactor;
         totalScaleFactor *= newScaleFactor;
 
         // Change zoom, but don't re-render
-        zoomChange((int) focusX, (int) focusY, 1 / newScaleFactor);
+        zoomChangeIn((int) focusX, (int) focusY, 1 / newScaleFactor);
+
+        invalidate();
+    }
+
+    /* Updates zoom level during a scale gesture, but doesn't re-render */
+    public void zoomImageOut(float focusX, float focusY, float newScaleFactor) {
+        midX = focusX;
+        midY = focusY;
+        scaleFactor = newScaleFactor;
+        totalScaleFactor *= newScaleFactor;
+
+        // Change zoom, but don't re-render
+        zoomChangeOut((int) focusX, (int) focusY, 1 / newScaleFactor);
 
         invalidate();
     }

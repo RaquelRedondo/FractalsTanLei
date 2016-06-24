@@ -630,8 +630,8 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
                         currentlyDragging = false;
                         currentlyTLZooming = true;
                         fractalView.stopDragging(true);
-                        fractalView.startZoomingIn(evt.getX(), evt.getY());
-                        fractalView.zoomImage(evt.getX(), evt.getY(), calculateTLZoom(evt.getX(),evt.getY()));
+                        fractalView.startZooming(evt.getX(), evt.getY());
+                        fractalView.zoomImageIn(evt.getX(), evt.getY(), calculateTLZoom(evt.getX(),evt.getY()));
                         littleFractalView.controlmode = AbstractFractalView.ControlMode.ROTATING;
                         //updateLittleJulia(dragLastX,dragLastY);
                         rotateLittleJulia();
@@ -647,8 +647,8 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
                         currentlyDragging = false;
                         currentlyTLZooming = true;
                         fractalView.stopDragging(true);
-                        fractalView.startZoomingIn(evt.getX(), evt.getY());
-                        fractalView.zoomImage(evt.getX(), evt.getY(), calculateTLZoom(evt.getX(),evt.getY()));
+                        fractalView.startZooming(evt.getX(), evt.getY());
+                        fractalView.zoomImageIn(evt.getX(), evt.getY(), calculateTLZoom(evt.getX(),evt.getY()));
                     } else {
                         startDragging(evt);
                     }
@@ -863,14 +863,14 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
 
     public boolean onScaleBegin(ScaleGestureDetector detector) {
         fractalView.stopDragging(true);
-        fractalView.startZoomingIn(detector.getFocusX(), detector.getFocusY());
+        fractalView.startZooming(detector.getFocusX(), detector.getFocusY());
 
         currentlyDragging = false;
         return true;
     }
 
     public boolean onScale(ScaleGestureDetector detector) {
-        fractalView.zoomImage(detector.getFocusX(), detector.getFocusY(), detector.getScaleFactor());
+        fractalView.zoomImageIn(detector.getFocusX(), detector.getFocusY(), detector.getScaleFactor());
         return true;
     }
 
@@ -1307,15 +1307,13 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
                     updateLittleJulia((float) xPixel, (float) yPixel);
                 }
 
-                fractalView.startZoomingIn(xlastPinCoord, ylastPinCoord);
-                fractalView.zoomImage(xlastPinCoord, ylastPinCoord, calculateTLZoom(xlastPinCoord, ylastPinCoord));
+                fractalView.startZooming(xlastPinCoord, ylastPinCoord);
+                fractalView.zoomImageIn(xlastPinCoord, ylastPinCoord, calculateTLZoom(xlastPinCoord, ylastPinCoord));
                 //littleFractalView.controlmode = AbstractFractalView.ControlMode.ROTATING;
                 //updateLittleJulia(dragLastX,dragLastY);
                 //rotateLittleJulia();
                 stopZooming();
                 float[] pinCoords = ((MandelbrotFractalView) fractalView).getPinCoords();
-                float x = pinCoords[0];
-                float y = pinCoords[1];
                 xlastPinCoord = pinCoords[0];
                 ylastPinCoord = pinCoords[1];
                 fractalView.setMandelbrotGraphArea();
@@ -1329,13 +1327,22 @@ public class FractalActivity extends ActionBarActivity implements OnTouchListene
                 currentlyTLZooming = false;
                 currentlyDragging = false;
                 if (!hasBeenDragged) {
-                    double xPixel = coordToPixels(textCoord[0] , "X_COORD");
+                    double xPixel = coordToPixels(textCoord[0], "X_COORD");
                     double yPixel = coordToPixels(textCoord[1], "Y_COORD");
                     updateLittleJulia((float) xPixel, (float) yPixel);
-
-                    fractalView.startZoomingOut(xlastPinCoord, ylastPinCoord);
-                    fractalView.zoomImage(xlastPinCoord, ylastPinCoord, calculateTLZoom(xlastPinCoord, ylastPinCoord));
                 }
+
+                    fractalView.startZooming(xlastPinCoord, ylastPinCoord);
+                    fractalView.zoomImageOut(xlastPinCoord, ylastPinCoord, calculateTLZoom(xlastPinCoord, ylastPinCoord));
+
+                    stopZooming();
+
+
+                    float[] pinCoords = ((MandelbrotFractalView) fractalView).getPinCoords();
+                    xlastPinCoord = pinCoords[0];
+                    ylastPinCoord = pinCoords[1];
+                    fractalView.setMandelbrotGraphArea();
+
             }
         });
 
